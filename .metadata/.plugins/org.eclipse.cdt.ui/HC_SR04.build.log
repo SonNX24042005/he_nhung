@@ -1,0 +1,30 @@
+09:01:27 **** Build of configuration Debug for project HC_SR04 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -IC:/Users/NXS/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc -IC:/Users/NXS/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -IC:/Users/NXS/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include -IC:/Users/NXS/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -IC:/Users/NXS/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc -IC:/Users/NXS/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -IC:/Users/NXS/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include -IC:/Users/NXS/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.1/Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'EXTI15_10_IRQHandler':
+../Core/Src/stm32f4xx_it.c:279:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  279 |                 sprintf((char *)uarft_trans_buffer, "Distance: %d cm\r\n", distance);
+      |                 ^~~~~~~
+../Core/Src/stm32f4xx_it.c:26:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   25 | #include <string.h>                                     //Tạo nội dung để gửi về máy tính qua UART - COM để debug
+  +++ |+#include <stdio.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/stm32f4xx_it.c:279:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  279 |                 sprintf((char *)uarft_trans_buffer, "Distance: %d cm\r\n", distance);
+      |                 ^~~~~~~
+../Core/Src/stm32f4xx_it.c:279:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+arm-none-eabi-gcc -o "HC_SR04.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\DT\Learn\20252\6.HeNhung\he_nhung\BTLT\B8\STM32F429-HC_SR04\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HC_SR04.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: HC_SR04.elf
+ 
+arm-none-eabi-size  HC_SR04.elf 
+arm-none-eabi-objdump -h -S HC_SR04.elf  > "HC_SR04.list"
+   text	   data	    bss	    dec	    hex	filename
+  14120	     92	   2188	  16400	   4010	HC_SR04.elf
+Finished building: default.size.stdout
+ 
+Finished building: HC_SR04.list
+ 
+
+09:01:28 Build Finished. 0 errors, 2 warnings. (took 1s.360ms)
+
